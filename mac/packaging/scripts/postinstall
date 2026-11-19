@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+# Runtime and configuration are system-owned; only the fixed management operations cross this boundary.
+/usr/sbin/chown -R root:wheel "/Library/Application Support/BLEWright" /Applications/BLEWright.app
+/bin/chmod -R go-w "/Library/Application Support/BLEWright" /Applications/BLEWright.app
+/usr/sbin/chown root:wheel /Library/LaunchDaemons/dev.blewright.daemon.plist /Library/LaunchAgents/dev.blewright.agent.plist
+/bin/chmod 644 /Library/LaunchDaemons/dev.blewright.daemon.plist /Library/LaunchAgents/dev.blewright.agent.plist
+/bin/launchctl bootstrap system /Library/LaunchDaemons/dev.blewright.daemon.plist
+for uid in $(/bin/ps -axo uid,comm | /usr/bin/awk '$2 == "/System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow" && $1 >= 500 {print $1}'); do
+ /bin/launchctl bootstrap "gui/$uid" /Library/LaunchAgents/dev.blewright.agent.plist || true
+done
+exit 0

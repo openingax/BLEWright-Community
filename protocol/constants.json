@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "defaultPort": 8765,
+  "maxFrameBytes": 65536,
+  "requestTimeoutMs": 7000,
+  "requestTimeoutsMs": { "connect": 15000, "discover": 60000, "session.end": 15000 },
+  "heartbeatIntervalMs": 5000
+}

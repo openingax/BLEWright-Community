@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+if [ -x "/Library/Application Support/BLEWright/runtime/BLEWrightRuntime" ]; then
+ "/Library/Application Support/BLEWright/runtime/BLEWrightRuntime" --check-idle
+fi
+# Stop the old daemon and each loaded per-user UI before replacing runtime files.
+unload_service() {
+ service="$1"
+ /bin/launchctl bootout "$service" 2>/dev/null || true
+ # bootout returns before launchd finishes graceful process cleanup. Replacing
+ # files or bootstrapping the same label during that interval can fail with EIO.
+ attempts=0
+ while /bin/launchctl print "$service" >/dev/null 2>&1; do
+  attempts=$((attempts + 1))
+  if [ "$attempts" -ge 45 ]; then
+   echo "BLEWright: 等待旧服务退出超时，未继续替换程序：$service" >&2
+   exit 1
+  fi
+  /bin/sleep 1
+ done
+}
+unload_service system/dev.blewright.daemon
+for uid in $(/bin/ps -axo uid,comm | /usr/bin/awk '$2 == "/System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow" && $1 >= 500 {print $1}'); do
+ unload_service "gui/$uid/dev.blewright.agent"
+done
+exit 0

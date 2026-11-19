@@ -1,0 +1,34 @@
+{
+  "name": "blewright",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:android",
+    "build:android": "esbuild android/simulatorble/agent.js --bundle --format=iife --platform=neutral --target=es2020 --outfile=dist/android/agent.js",
+    "build:probe": "python3 tests/android/build_probe.py",
+    "build:host": "python3 tests/android/build_host.py",
+    "test": "node --test tests/unit/*.test.js tests/integration/*.test.js",
+    "serve": "node mac/service/main.js",
+    "android:run": ".venv/bin/python android/launcher/run.py",
+    "verify:android": ".venv/bin/python tests/e2e/verify_rpc.py",
+    "verify:android:hardware": ".venv/bin/python tests/e2e/verify_android_hardware.py",
+    "build:ios": "python3 tests/ios/build_probe.py",
+    "verify:ios": "python3 tests/e2e/verify_ios.py",
+    "check:ios-protocol": "python3 ios/tools/generate_protocol.py --check",
+    "serve:office": "BLEWRIGHT_BACKEND=esp32-scan BLEWRIGHT_PORT=8766 node mac/service/main.js",
+    "build:explorer": "python3 android/explorer/build.py",
+    "explorer:mock": ".venv/bin/python android/explorer/run_mock.py",
+    "verify:explorer": ".venv/bin/python tests/e2e/verify_explorer.py",
+    "verify:explorer:edges": ".venv/bin/python tests/e2e/verify_explorer_edges.py",
+    "explorer:workstation": ".venv/bin/python android/explorer/run_workstation.py",
+    "test:explorer:filters": "python3 tests/android/test_explorer_filters.py",
+    "verify:explorer:filters": ".venv/bin/python tests/e2e/verify_explorer_filters.py",
+    "verify:explorer:hardware": ".venv/bin/python tests/e2e/verify_explorer_live_ui.py",
+    "build:ui-tools": "python3 tests/android/build_ui_tools.py"
+  },
+  "devDependencies": {
+    "buffer": "6.0.3",
+    "esbuild": "0.25.12",
+    "frida-java-bridge": "7.0.9"
+  }
+}

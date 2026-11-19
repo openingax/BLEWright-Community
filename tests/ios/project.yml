@@ -1,0 +1,55 @@
+name: BLEWrightIOSProbe
+options:
+  bundleIdPrefix: space.nomoloop.blewright
+  deploymentTarget:
+    iOS: '15.0'
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    IPHONEOS_DEPLOYMENT_TARGET: '15.0'
+    CODE_SIGNING_ALLOWED: NO
+    CLANG_ENABLE_MODULES: YES
+    CLANG_ENABLE_OBJC_ARC: YES
+  configs:
+    Debug:
+      GCC_PREPROCESSOR_DEFINITIONS: ['$(inherited)', 'DEBUG=1']
+targets:
+  SimulatorBLE:
+    type: framework
+    platform: iOS
+    sources:
+      - path: ../../ios/Sources/SimulatorBLE
+        headerVisibility: project
+        excludes: [include]
+      - path: ../../ios/Sources/SimulatorBLE/include/SimulatorBLE.h
+        headerVisibility: public
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: space.nomoloop.blewright.SimulatorBLE
+        DEFINES_MODULE: YES
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - sdk: CoreBluetooth.framework
+      - sdk: Network.framework
+  BLEWrightIOSProbe:
+    type: application
+    platform: iOS
+    sources: [Probe]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: space.nomoloop.blewright.iosprobe
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: ../../../tests/ios/Info.plist
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: BLEWright simulator probe
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+    dependencies:
+      - target: SimulatorBLE
+schemes:
+  BLEWrightIOSProbe:
+    build:
+      targets:
+        BLEWrightIOSProbe: all
+    run:
+      config: Debug
+      environmentVariables:
+        BLEWRIGHT_ENABLE: '1'
