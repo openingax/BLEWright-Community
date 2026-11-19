@@ -152,11 +152,13 @@ test("busy, oversize, invalid CCCD and attribute fail without changing stored da
   const { client } = await setup(t),
     c = await client();
   await connect(c);
+  // Deliver the overlapping operations together so TCP buffering cannot
+  // postpone the read until after the simulated write completes.
+  c.socket.cork();
   const write = request(c, "write", { attributeId: "char-1", value: [7] });
-  assert.equal(
-    (await request(c, "read", { attributeId: "char-1" })).error.code,
-    "BUSY",
-  );
+  const read = request(c, "read", { attributeId: "char-1" });
+  c.socket.uncork();
+  assert.equal((await read).error.code, "BUSY");
   await write;
   assert.equal(
     (
