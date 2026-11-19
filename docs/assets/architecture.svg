@@ -1,42 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc"><title id="title">BLEWright architecture / 架构</title><desc id="desc">An iOS CoreBluetooth runtime adapter and an Android Frida hook plus host relay connect to a local Mac RPC service. Sessions use a mock peripheral or a USB-connected ESP32-S3 communicating with a real BLE peripheral.</desc>
-<rect x="0" y="0" width="1120" height="650" rx="0" fill="#102923" stroke="none"/>
-<text x="42" y="60" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="34" font-weight="700">BLEWright</text>
-<text x="42" y="98" fill="#d2f787" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="22" font-weight="400">Architecture  /  架构</text>
-<text x="42" y="159" fill="#bed8c4" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">CLIENTS  /  客户端</text>
-<text x="436" y="159" fill="#bed8c4" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">HOST  /  主机</text>
-<text x="808" y="159" fill="#bed8c4" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">BACKENDS  /  后端</text>
-<polyline points="42,178 332,178" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polyline points="436,178 690,178" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polyline points="808,178 1076,178" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<rect x="42" y="217" width="279" height="115" rx="10" fill="#1b3931" stroke="#527564"/>
-<text x="59" y="254" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">iOS Simulator</text>
-<text x="59" y="283" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">CoreBluetooth runtime adapter</text>
-<text x="59" y="308" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">运行时接管 · Debug</text>
-<rect x="42" y="396" width="279" height="115" rx="10" fill="#1b3931" stroke="#527564"/>
-<text x="59" y="433" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Android Emulator</text>
-<text x="59" y="462" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">Frida hook → host relay</text>
-<text x="59" y="487" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">原生 API → 主机转发</text>
-<polyline points="321,275 368,275 368,455 321,455" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polyline points="368,365 435,365" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polygon points="435,365 426,360 426,370" fill="#91bd9b"/>
-<text x="375" y="344" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="14" font-weight="400">TCP</text>
-<rect x="436" y="308" width="253" height="115" rx="10" fill="#d2f787" stroke="none"/>
-<text x="453" y="345" fill="#132921" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Mac RPC service</text>
-<text x="453" y="374" fill="#35523a" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">Local TCP · session routing</text>
-<text x="453" y="399" fill="#35523a" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">本机服务 · 会话分发</text>
-<polyline points="690,365 748,365 748,275 807,275" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polygon points="807,275 798,270 798,280" fill="#91bd9b"/>
-<polyline points="748,365 748,455 807,455" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<polygon points="807,455 798,450 798,460" fill="#91bd9b"/>
-<rect x="808" y="217" width="269" height="115" rx="10" fill="#1b3931" stroke="#527564"/>
-<text x="825" y="254" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Mock peripheral</text>
-<text x="825" y="283" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">In-memory GATT model</text>
-<text x="825" y="308" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">内置模拟外设</text>
-<rect x="808" y="396" width="269" height="115" rx="10" fill="#1b3931" stroke="#527564"/>
-<text x="825" y="433" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">ESP32-S3</text>
-<text x="825" y="462" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">USB serial → BLE radio</text>
-<text x="825" y="487" fill="#b5cabe" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">USB 串口 → 蓝牙射频</text>
-<path d="M 942 511 v 35" fill="none" stroke="#91bd9b" stroke-width="2"/>
-<text x="848" y="575" fill="#f3f5e8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="19" font-weight="400">Real BLE peripheral</text>
-<text x="850" y="602" fill="#bed8c4" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">真实 BLE 外设</text>
+<rect x="0" y="0" width="1120" height="650" rx="0" fill="#071529" stroke="none"/>
+<text x="42" y="60" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="34" font-weight="700">BLEWright</text>
+<text x="42" y="98" fill="#89C8FF" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="22" font-weight="400">Architecture  /  架构</text>
+<text x="42" y="159" fill="#b4cde8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">CLIENTS  /  客户端</text>
+<text x="436" y="159" fill="#b4cde8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">HOST  /  主机</text>
+<text x="808" y="159" fill="#b4cde8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">BACKENDS  /  后端</text>
+<polyline points="42,178 332,178" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polyline points="436,178 690,178" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polyline points="808,178 1076,178" fill="none" stroke="#579bd6" stroke-width="2"/>
+<rect x="42" y="217" width="279" height="115" rx="10" fill="#102845" stroke="#385d85"/>
+<text x="59" y="254" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">iOS Simulator</text>
+<text x="59" y="283" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">CoreBluetooth runtime adapter</text>
+<text x="59" y="308" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">运行时接管 · Debug</text>
+<rect x="42" y="396" width="279" height="115" rx="10" fill="#102845" stroke="#385d85"/>
+<text x="59" y="433" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Android Emulator</text>
+<text x="59" y="462" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">Frida hook → host relay</text>
+<text x="59" y="487" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">原生 API → 主机转发</text>
+<polyline points="321,275 368,275 368,455 321,455" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polyline points="368,365 435,365" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polygon points="435,365 426,360 426,370" fill="#579bd6"/>
+<text x="375" y="344" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="14" font-weight="400">TCP</text>
+<rect x="436" y="308" width="253" height="115" rx="10" fill="#89C8FF" stroke="none"/>
+<text x="453" y="345" fill="#081e39" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Mac RPC service</text>
+<text x="453" y="374" fill="#183b5f" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">Local TCP · session routing</text>
+<text x="453" y="399" fill="#183b5f" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">本机服务 · 会话分发</text>
+<polyline points="690,365 748,365 748,275 807,275" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polygon points="807,275 798,270 798,280" fill="#579bd6"/>
+<polyline points="748,365 748,455 807,455" fill="none" stroke="#579bd6" stroke-width="2"/>
+<polygon points="807,455 798,450 798,460" fill="#579bd6"/>
+<rect x="808" y="217" width="269" height="115" rx="10" fill="#102845" stroke="#385d85"/>
+<text x="825" y="254" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">Mock peripheral</text>
+<text x="825" y="283" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">In-memory GATT model</text>
+<text x="825" y="308" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">内置模拟外设</text>
+<rect x="808" y="396" width="269" height="115" rx="10" fill="#102845" stroke="#385d85"/>
+<text x="825" y="433" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="23" font-weight="700">ESP32-S3</text>
+<text x="825" y="462" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">USB serial → BLE radio</text>
+<text x="825" y="487" fill="#b5cbe2" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="15" font-weight="400">USB 串口 → 蓝牙射频</text>
+<path d="M 942 511 v 35" fill="none" stroke="#579bd6" stroke-width="2"/>
+<text x="848" y="575" fill="#f3f8ff" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="19" font-weight="400">Real BLE peripheral</text>
+<text x="850" y="602" fill="#b4cde8" font-family="Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,sans-serif" font-size="16" font-weight="400">真实 BLE 外设</text>
 </svg>
